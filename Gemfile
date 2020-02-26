@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'devise-bootstrap-views'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
