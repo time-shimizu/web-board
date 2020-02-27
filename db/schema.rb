@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_014809) do
+ActiveRecord::Schema.define(version: 2020_02_27_022120) do
 
   create_table "topics", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_name"
     t.index ["created_at"], name: "index_topics_on_created_at"
   end
 
