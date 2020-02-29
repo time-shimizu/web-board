@@ -20,7 +20,11 @@
             <li><%= link_to "新着スレッド一覧", topics_path %></li>
             <li><%= link_to "新しいスレッドをたてる", new_topic_path %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+            <% else %>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
+            <% end %>
           </ul>
         </li>
       </ul>
