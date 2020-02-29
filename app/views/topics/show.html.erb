@@ -1,8 +1,10 @@
 <h1><%= @topic.title %></h1>
 <% @subcategories.each do |subcategory| %>
-  <button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> <%= subcategory.content %>
-  </button>
+  <%= link_to subcategory_path(subcategory.id) do %>
+    <button type="button" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> <%= subcategory.content %>
+    </button>
+  <% end %>
 <% end %>
 <hr>
 <div class="panel panel-default">

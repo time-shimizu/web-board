@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "static_pages#home"
-  resources :topics
+  resources :topics,        only: [:index, :show, :new, :create]
+  resources :subcategories, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
