@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root "static_pages#home"
   resources :topics,        only: [:index, :show, :new, :create]
   resources :subcategories, only: [:show]
+  resources :responses,     only: [:create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

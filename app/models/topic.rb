@@ -6,4 +6,5 @@ class Topic < ApplicationRecord
   has_many :relationships
   has_many :subcategories, through: :relationships
   accepts_nested_attributes_for :relationships, allow_destroy: true
+  has_many :responses
 end

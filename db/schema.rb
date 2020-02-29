@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_002913) do
+ActiveRecord::Schema.define(version: 2020_02_29_060851) do
 
   create_table "categories", force: :cascade do |t|
     t.string "content"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2020_02_29_002913) do
     t.datetime "updated_at", null: false
     t.index ["subcategory_id"], name: "index_relationships_on_subcategory_id"
     t.index ["topic_id"], name: "index_relationships_on_topic_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.string "user_name"
+    t.string "content"
+    t.integer "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_responses_on_topic_id"
   end
 
   create_table "subcategories", force: :cascade do |t|

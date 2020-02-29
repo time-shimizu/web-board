@@ -7,6 +7,8 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @subcategories = @topic.subcategories
+    @responses = @topic.responses
+    @response = Response.new
   end
 
   def new

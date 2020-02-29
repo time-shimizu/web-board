@@ -15,3 +15,29 @@
     <%= @topic.content %>
   </div>
 </div>
+<% @responses.each_with_index do |response, m| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title"><%= m+2 %> <%= response.user_name %></h5>
+    </div>
+    <div class="panel-body">
+      <%= response.content %>
+    </div>
+  </div>
+<% end %>
+<hr>
+<%= form_for(@response) do |f| %>
+<%= hidden_field_tag :topic_id, @topic.id %>
+  <div class="form-group">
+    <%= f.label :user_name, "お名前" %>
+    <%= f.text_field :user_name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, "内容" %>
+    <%= f.text_area :content, size: "40x10", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "返信する", class: 'btn btn-primary' %>
+  </div>
+<% end %>

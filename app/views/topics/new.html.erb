@@ -1,5 +1,5 @@
 <%= form_for(@topic) do |f| %>
-<%= render 'layouts/error_messages' %>
+<%= render 'layouts/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label :user_name, "お名前" %>
     <%= f.text_field :user_name, class: 'form-control' %>
