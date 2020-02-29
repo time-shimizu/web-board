@@ -18,13 +18,14 @@
 <% @responses.each_with_index do |response, m| %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h5 class="panel-title"><%= m+2 %> <%= response.user_name %></h5>
+      <h5 class="panel-title"><%= params[:page]==nil ? m+2 : ((params[:page].to_i)*5+1) -4 + m %> <%= response.user_name %></h5>
     </div>
     <div class="panel-body">
       <%= response.content %>
     </div>
   </div>
 <% end %>
+<%= paginate @responses %>
 <hr>
 <% if user_signed_in? %>
   <%= form_for(@response) do |f| %>
@@ -43,5 +44,5 @@
     </div>
   <% end %>
 <% else %>
-<p>返信するには<%= link_to "ログイン",new_user_session_path  %>が必要です</p>  
+<p>返信するには<%= link_to "ログイン",new_user_session_path  %>が必要です</p>
 <% end %>
