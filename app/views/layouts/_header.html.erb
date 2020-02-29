@@ -13,13 +13,12 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "スレッド一覧", topics_path %></li>
+        <li><%= link_to "ヘルプ", help_path %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><%= link_to "新着スレッド一覧", topics_path %></li>
             <li><%= link_to "新しいスレッドをたてる", new_topic_path %></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "ログイン", new_user_session_path %></li>
           </ul>

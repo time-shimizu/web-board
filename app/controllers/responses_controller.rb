@@ -1,4 +1,5 @@
 class ResponsesController < ApplicationController
+  before_action :authenticate_user!, only: :create
   def create
     @topic = Topic.find_by(id: params[:topic_id])
     @response = @topic.responses.build(response_params)

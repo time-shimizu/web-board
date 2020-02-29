@@ -26,18 +26,22 @@
   </div>
 <% end %>
 <hr>
-<%= form_for(@response) do |f| %>
-<%= hidden_field_tag :topic_id, @topic.id %>
-  <div class="form-group">
-    <%= f.label :user_name, "お名前" %>
-    <%= f.text_field :user_name, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :content, "内容" %>
-    <%= f.text_area :content, size: "40x10", class: 'form-control' %>
-  </div>
+<% if user_signed_in? %>
+  <%= form_for(@response) do |f| %>
+  <%= hidden_field_tag :topic_id, @topic.id %>
+    <div class="form-group">
+      <%= f.label :user_name, "お名前" %>
+      <%= f.text_field :user_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :content, "内容" %>
+      <%= f.text_area :content, size: "40x10", class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.submit "返信する", class: 'btn btn-primary' %>
-  </div>
+    <div class="form-group">
+      <%= f.submit "返信する", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% else %>
+<p>返信するには<%= link_to "ログイン",new_user_session_path  %>が必要です</p>  
 <% end %>
