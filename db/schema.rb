@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_022120) do
+ActiveRecord::Schema.define(version: 2020_02_29_002913) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "topic_id"
+    t.integer "subcategory_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subcategory_id"], name: "index_relationships_on_subcategory_id"
+    t.index ["topic_id"], name: "index_relationships_on_topic_id"
+  end
+
+  create_table "subcategories", force: :cascade do |t|
+    t.string "content"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_subcategories_on_category_id"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string "title"
