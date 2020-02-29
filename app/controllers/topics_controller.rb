@@ -9,6 +9,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    @topic.subcategories.build
   end
 
   def create
@@ -22,6 +23,6 @@ class TopicsController < ApplicationController
 
   private
   def topic_params
-    params.require(:topic).permit(:user_name, :title, :content)
+    params.require(:topic).permit(:user_name, :title, :content, {:subcategory_ids => []})
   end
 end
