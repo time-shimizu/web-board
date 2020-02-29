@@ -1,10 +1,39 @@
-<ul class="list-group">
-  <% @topics.each do |topic| %>
-    <%= link_to topic_path(topic.id) do %>
-      <li class="list-group-item">
-        <span class="badge">14</span>
-        <%= topic.title %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+<div clas="row">
+  <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
+      <div class="panel panel-default">
+        <div class="panel-heading">カテゴリー</div>
+        <div class="panel-body">
+          <ul class="nav  side-nav">
+            <% @categories.each do |category| %>
+            <li>
+                <%= category.content %>
+              <ul>
+                <% category.subcategories.each do |subcategory| %>
+                  <li>
+                    <%= link_to root_path do %>
+                      <%= subcategory.content %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+  </div>
+  <div class="col-md-9 col-sm-8 col-xs-12">
+    <div class="row">
+      <ul class="list-group">
+        <% @topics.each do |topic| %>
+          <%= link_to topic_path(topic.id) do %>
+            <li class="list-group-item">
+              <span class="badge">14</span>
+              <%= topic.title %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
