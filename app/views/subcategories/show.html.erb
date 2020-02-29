@@ -11,7 +11,7 @@
                 <% category.subcategories.each do |subcategory| %>
                   <li>
                     <%= link_to subcategory_path(subcategory.id) do %>
-                      <%= subcategory.content %>
+                      <%= "#{subcategory.content}(#{subcategory.topics.count})" %>
                     <% end %>
                   </li>
                 <% end %>
