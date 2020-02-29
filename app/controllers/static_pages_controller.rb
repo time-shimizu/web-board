@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    @topics = Topic.search(params[:search])
+    @topics = Topic.search(params[:search]).page(params[:page]).per(5)
     @categories = Category.all
   end
 end
