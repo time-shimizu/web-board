@@ -1,0 +1,27 @@
+<h1>検索に一致するスレッド</h1>
+<hr>
+<div class="row">
+  <ul class="list-group">
+    <% @topics.each do |topic| %>
+      <%= link_to topic_path(topic.id) do %>
+        <li class="list-group-item">
+          <span class="badge"><%= topic.responses.count %></span>
+          <%= "#{topic.title} | #{topic.created_at.to_s(:datetime_jp)}" %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<h2>検索に一致するレス</h2>
+<hr>
+<div class="row">
+  <ul class="list-group">
+    <% @responses.each do |response| %>
+      <%= link_to topic_path(response.topic.id) do %>
+        <li class="list-group-item">
+          <%= "#{response.content} | #{response.created_at.to_s(:datetime_jp)}" %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

@@ -3,8 +3,8 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    @topics = Topic.search(params[:search]).page(params[:page]).per(5)
+    @topics = Topic.search(params[:search])
+    @responses = Response.search(params[:search])
     @categories = Category.all
-    render 'topics/index'
   end
 end

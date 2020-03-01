@@ -18,7 +18,9 @@
 <% @responses.each_with_index do |response, m| %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h5 class="panel-title"><%= params[:page]==nil ? m+2 : ((params[:page].to_i)*5+1) -4 + m %> <%= response.user_name %> | <%= response.created_at.to_s(:datetime_jp) %></h5>
+      <h5 class="panel-title">
+        <%= params[:page]==nil ? m+2 : ((params[:page].to_i)*5+1) -4 + m %> <%= response.user_name %> | <%= response.created_at.to_s(:datetime_jp) %>
+      </h5>
     </div>
     <div class="panel-body">
       <%= response.content %>
