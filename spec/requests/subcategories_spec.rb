@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Subcategories", type: :request do
   describe "GET /subcategories" do
-    let!(:category) {create(:category)}
+    let!(:category)     {create(:category)}
     let!(:subcategory1) {create(:subcategory, category: category)}
     let!(:subcategory2) {create(:subcategory, category: category)}
-    let!(:topic1) {create(:topic, subcategories: [subcategory1])}
-    let!(:topic2) {create(:topic, title: "title2", subcategories: [subcategory2])}
+    let!(:topic1)       {create(:topic, subcategories: [subcategory1])}
+    let!(:topic2)       {create(:topic, title: "title2", subcategories: [subcategory2])}
 
     before do
       get subcategory_path(subcategory1.id)
