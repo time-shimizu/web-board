@@ -1,3 +1,4 @@
+<% provide(:title, @topic.title) %>
 <h1><%= @topic.title %></h1>
 <% @subcategories.each do |subcategory| %>
   <%= link_to subcategory_path(subcategory.id) do %>
