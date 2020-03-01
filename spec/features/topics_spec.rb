@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature "Topics", type: :feature do
   let!(:user)  {create(:user)}
-  let!(:topic) {create(:topic)}
 
   scenario "ユーザーがログインした後新スレッドを作る" do
     visit root_path
@@ -19,6 +18,8 @@ RSpec.feature "Topics", type: :feature do
       click_button "スレッドを作成する"
 
       expect(page).to have_content "user_name"
+      expect(page).to have_content "title"
+      expect(page).to have_content "sample content"
     }.to change(Topic.all, :count).by(1)
   end
 end
