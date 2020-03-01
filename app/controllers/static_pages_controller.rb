@@ -5,5 +5,6 @@ class StaticPagesController < ApplicationController
   def search
     @topics = Topic.search(params[:search]).page(params[:page]).per(5)
     @categories = Category.all
+    render 'topics/index'
   end
 end
