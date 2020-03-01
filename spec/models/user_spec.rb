@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
   end
 
   it "重複したメールアドレスは使えない" do
-    other = User.create(email: "sample@example.com", password: "hogehoge")
+    other = User.new(email: "sample3@example.com", password: "hogehoge")
     other.valid?
     expect(other.errors[:email]).to include("はすでに存在します")
   end

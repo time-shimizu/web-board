@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :response do
     user_name "MyString"
     content "MyString"
-    topic nil
+    association :topic
   end
 end
